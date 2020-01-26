@@ -1,5 +1,3 @@
-# Spring in 10 steps
-
 - main understanding points
     - loose coupling
     - dependency injection
@@ -66,3 +64,20 @@ annotation. It says to search package and sub packages inside this
     - 03. Field injection
 - recommend to inject all mandatory dependencies through constructor
 - in now a days Field injection is preferred, due to large number of fields are not good as constructor  
+
+
+### Heavily used Spring Projects
+- Spring boot
+- Spring cloud - build cloud native app
+- Spring Data - consistent data access (sql / nosql)
+- Spring Batch
+- Spring Security
+- Spring HATEOAS
+- Spring Integration
+- Spring mobile , Spring Android
+
+### spring cons
+- good testing support (unit test, integration....)
+- no plumbing codes (no unnecessary exception handling..)
+- flexible architecture (MVC,.. )
+- uptodate
