@@ -23,3 +23,24 @@ This contains basic concepts and combination of rest, spring boot, JPA and web s
 - defines endpoints, all opertations,request structure and response structure
 
 
+## what is Spring -
+- Simply put, the Spring framework provides comprehensive infrastructure support for developing Java applications.
+- It's packed with some nice features like Dependency Injection and out of the box modules like:
+    - Spring JDBC
+    - Spring MVC
+    - Spring Security
+    - Spring AOP
+    - Spring ORM
+    - Spring Test
+These modules can drastically reduce the development time of an application.
+
+## What Is Spring Boot?
+- Spring Boot is basically an extension of the Spring framework which eliminated the boilerplate configurations required for setting up a Spring application.
+- It takes an opinionated view of the Spring platform which paved the way for a faster and more efficient development eco-system.
+Here are just a few of the features in Spring Boot:
+    - Opinionated ‘starter' dependencies to simplify build and application configuration
+    - Embedded server to avoid complexity in application deployment
+    - Metrics, Helth check, and externalized configuration
+    - Automatic config for Spring functionality – whenever possible
+
+<< soruce - https://www.baeldung.com/spring-vs-spring-boot >>
