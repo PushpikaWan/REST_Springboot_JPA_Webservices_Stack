@@ -173,3 +173,67 @@ DispatcherServletAutoConfiguration.DispatcherServletRegistrationConfiguration#di
 - can see documentation in both places 
     - http://localhost:8080/v2/api-docs
     - http://localhost:8080/swagger-ui.html
+
+### monitoring using Actuator
+- need to add below dependencies
+~~~
+   <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.data</groupId>
+       <artifactId>spring-data-rest-hal-browser</artifactId>
+       <scope>provided</scope>
+   </dependency>
+~~~
+- can see data in localhost:8080/actuator
+- enable this ```management.endpoints.web.exposure.include=*``` in application.properties
+
+### filtering data
+- can use filtering controller for that
+    ###### static filtering
+- can use ```@JsonIgnore``` annotation on top of the filed in bean to ignore those
+- otherwise we can define it as a class level by adding```@JsonIgnoreProperties(value={"Field1","Field2"})```
+    ###### dynamic filtering
+- can use MappingJacksonValue class for that
+~~~
+ @GetMapping("/filtering")
+    public MappingJacksonValue retrieveSomeBean() {
+        SomeBean someBean = new SomeBean("value1", "value2", "value3");
+
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("field1", "field2");
+
+        FilterProvider filters = new SimpleFilterProvider().addFilter("SomeBeanFilter", filter);
+
+        MappingJacksonValue mapping = new MappingJacksonValue(someBean);
+
+        mapping.setFilters(filters);
+
+        return mapping;
+    }
+~~~
+
+### Versioning
+- there are several kind of versioning. u can see different types of versioning in PersonVersioningController...
+    - Header versioning, URI versioning, Request parameter versioning
+    
+### Security (basic authentication)
+- need to add below dependency to enable basic security there
+~~~
+  <dependency>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-security</artifactId>
+  </dependency>
+~~~
+- then when we restart server we can see password in the log
+
+~~~
+Using generated security password: e2fdb0b1-d1ca-421e-b8ae-bf37b6e83338
+~~~
+
+- we can configure user name and password in application.properties to get rid of changing password always server restarting issue
+~~~
+#spring.security.user.name=username
+#spring.security.user.password=password
+~~~

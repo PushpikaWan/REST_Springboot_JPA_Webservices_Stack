@@ -1,4 +1,4 @@
-package com.spring.basic.rest.webservice.restcourse.app.user;
+package com.spring.basic.rest.webservice.restcourse.app;
 
 import org.springframework.stereotype.Component;
 
